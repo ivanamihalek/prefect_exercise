@@ -105,8 +105,10 @@ EOF
 ```
 2. List Available Jobs
 ```bash
-./pipeline list-jobs
+pipeline list-jobs
 ```
+(pipeline was created by pip, see `[project.scripts]` section in project.toml)
+
 outout:
 ```text
 Available jobs:
