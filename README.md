@@ -45,41 +45,9 @@ no decorators in business logic. Prefect decorators are applied via wrappers.
 
 
 ---
-## Project Structure
-```text
-prefect_pipeline/
-├── pyproject.toml
-├── README.md
-├── src/
-│ └── prefect_pipeline/
-│ ├── init.py
-│ ├── cli.py # Command-line interface
-│ ├── config.py # Configuration management
-│ ├── database/
-│ │ ├── init.py
-│ │ └── models.py # Peewee ORM models
-│ ├── jobs/
-│ │ ├── init.py
-│ │ ├── base.py # BaseJob abstract class
-│ │ ├── job_a.py # File processing job
-│ │ ├── job_b.py # Database writing job
-│ │ └── job_c.py # Finalization job
-│ ├── pipeline/
-│ │ ├── init.py
-│ │ ├── wrappers.py # Prefect task wrappers
-│ │ └── flows.py # PipelineDefinition & flows
-│ └── validators/
-│ ├── init.py
-│ └── input_validators.py # Input validation utilities
-└── tests/
-├── init.py
-├── conftest.py # Pytest fixtures
-├── test_database.py
-├── test_jobs.py
-├── test_pipeline.py
-└── test_validators.py
-```
+
 ---
+
 ## Installation
 
 1. Clone the repository  
@@ -158,62 +126,9 @@ sqlite3 ./data/pipeline.db "SELECT * FROM processing_batches;"
 sqlite3 ./data/pipeline.db "SELECT * FROM processed_records;"
 ```
 
-
-----
-## Python API Demo
-
-Basic usage:
-
-```python
-from pathlib import Path
-from prefect_pipeline.pipeline import PipelineRunner
-
-# Create a runner with configuration
-runner = PipelineRunner(
-    output_dir=Path("./output"),
-    db_path=Path("./pipeline.db"),
-    log_level="INFO",  # or "OFF" to disable logging
-)
-
-# Run the full pipeline
-result = runner.run(Path("input.txt"))
-
-# Check the result
-if result.success:
-    print(f"Success! Output: {result.output}")
-else:
-    print(f"Failed: {result.error}")
-```
-
-Flexible execution:
-```python
-# Run full pipeline
-result = runner.run(Path("input.txt"))
-
-# Run from a specific job to the end
-result = runner.run(Path("processed.json"), start_from="B")
-
-# Run up to a specific job
-result = runner.run(Path("input.txt"), stop_after="A")
-
-# Run a single job
-result = runner.run(processed_data, start_from="B", stop_after="B")
-
-# Convenience methods
-result = runner.run_full(Path("input.txt"))           # Full pipeline
-result = runner.run_single("A", Path("input.txt"))    # Single job
-result = runner.run_from("B", processed_data)         # From B to end
-result = runner.run_until("B", Path("input.txt"))     # Start to B
-```
-List available jobs:
-```python
-print(runner.available_jobs)
-# ['A', 'B', 'C']
-```
 ---
 
-
-CLI Reference
+## CLI Reference
 ```text
 Usage: pipeline [OPTIONS] COMMAND [ARGS]...
 
@@ -229,7 +144,8 @@ Commands:
   run        Run the pipeline with flexible start/stop points.
   run-all    Run the complete pipeline (A -> B -> C).
 ```
-pipeline run
+
+Pipeline run:
 ```text
 Usage: pipeline run [OPTIONS] INPUT_DATA
 
@@ -244,54 +160,35 @@ Options:
   --help             Show this message and exit.
 
 ```
----
-Architecture Overview
-```text
-┌──────────────────────────────────────────────────────────────────┐
-│                         CLI (cli.py)                             │
-└──────────────────────────────────────────────────────────────────┘
-                                │
-                                ▼
-┌──────────────────────────────────────────────────────────────────┐
-│                    PipelineRunner (flows.py)                     │
-│  - Stores configuration (output_dir, db_path, log_level)        │
-│  - Provides convenient run methods                               │
-└──────────────────────────────────────────────────────────────────┘
-                                │
-                                ▼
-┌──────────────────────────────────────────────────────────────────┐
-│                 PipelineDefinition (flows.py)                    │
-│  - Holds ordered list of JobSpec                                 │
-│  - Provides job range queries (start_from, stop_after)           │
-└──────────────────────────────────────────────────────────────────┘
-                                │
-                                ▼
-┌──────────────────────────────────────────────────────────────────┐
-│               run_pipeline (Prefect @flow)                       │
-│  - Single flow handles all entry points                          │
-│  - Iterates through jobs in range                                │
-│  - Chains outputs to inputs                                      │
-└──────────────────────────────────────────────────────────────────┘
-                                │
-                                ▼
-┌──────────────────────────────────────────────────────────────────┐
-│              make_job_task (Prefect @task factory)               │
-│  - Dynamically creates Prefect tasks from JobSpec                │
-│  - Handles logging and error wrapping                            │
-└──────────────────────────────────────────────────────────────────┘
-                                │
-                                ▼
-┌──────────────────────────────────────────────────────────────────┐
-│                    BaseJob.execute()                             │
-│  - Calls validate_input() then single_job()                      │
-│  - Returns JobResult with success/failure info                   │
-└──────────────────────────────────────────────────────────────────┘
-                                │
-                                ▼
-┌──────────────────────────────────────────────────────────────────┐
-│                JobA / JobB / JobC (jobs/*.py)                    │
-│  - validate_input(): Input validation logic                      │
-│  - single_job(): Core business logic (no decorators!)            │
-└──────────────────────────────────────────────────────────────────┘
 
+Examples:
+```bash
+# Single file (as before)
+pipeline run-all input.txt
+
+# Multiple files from command line (parallel)
+pipeline run-all file1.txt file2.txt file3.txt --max-workers 4
+
+# Using glob pattern
+pipeline run-all data/*.txt --max-workers 2
+
+# From database
+pipeline run-all --from-db --max-workers 4
+
+# From database with limit
+pipeline run-all --from-db --limit 10 --max-workers 2
+
+# Add inputs to queue
+pipeline inputs add file1.txt file2.txt --priority 10
+
+# List queued inputs
+pipeline inputs list --status pending
+
+# Clear completed inputs
+pipeline inputs clear --status completed --yes
+
+# Retry failed inputs
+pipeline inputs retry-failed
 ```
+
+-

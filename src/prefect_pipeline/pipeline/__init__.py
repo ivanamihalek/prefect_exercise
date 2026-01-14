@@ -15,6 +15,13 @@ from prefect_pipeline.pipeline.flows import (
     create_default_pipeline,
 )
 
+from prefect_pipeline.pipeline.parallel import (
+    ParallelExecutionResult,
+    get_max_workers,
+    run_parallel_from_files,
+    run_parallel_from_database,
+)
+
 __all__ = [
     # Wrappers (kept for backward compatibility)
     "wrap_job_as_task",
@@ -28,4 +35,8 @@ __all__ = [
     "make_job_task",
     "run_pipeline",
     "create_default_pipeline",
-]
+    # Parallel execution
+    "ParallelExecutionResult",
+    "get_max_workers",
+    "run_parallel_from_files",
+    "run_parallel_from_database",]

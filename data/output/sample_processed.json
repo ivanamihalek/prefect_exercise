@@ -1,0 +1,23 @@
+{
+  "source_file": "demo_data/sample.txt",
+  "records": [
+    {
+      "name": "record_0",
+      "value": "hello world",
+      "line_number": 1
+    },
+    {
+      "name": "record_1",
+      "value": "prefect pipeline",
+      "line_number": 2
+    },
+    {
+      "name": "record_2",
+      "value": "end to end",
+      "line_number": 3
+    }
+  ],
+  "processed_at": "2026-01-13T21:14:48.156391",
+  "total_lines": 3,
+  "non_empty_lines": 3
+}
