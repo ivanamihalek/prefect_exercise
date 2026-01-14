@@ -5,15 +5,15 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-from config import get_config
-from database import (
+from src.config import get_config
+from src.database import (
     initialize_database,
     ProcessingBatch,
     ProcessedRecord,
     db,
 )
-from jobs import BaseJob
-from validators import validate_processed_data
+from src.jobs.base import BaseJob
+from src.validators import validate_processed_data
 
 
 class JobB(BaseJob[dict[str, Any], int]):

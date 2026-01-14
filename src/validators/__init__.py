@@ -1,6 +1,6 @@
 """Input validators module."""
 
-from validators.input_validators import (
+from src.validators.input_validators import (
     ValidationError,
     validate_file_path,
     validate_processed_data,

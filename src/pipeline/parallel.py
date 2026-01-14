@@ -9,8 +9,8 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable
 
-from config import set_config, PipelineConfig
-from database import (
+from src.config import set_config, PipelineConfig
+from src.database import (
     initialize_database,
     close_database,
     PipelineInput,
@@ -81,7 +81,7 @@ def _run_single_pipeline(args: tuple[str, Path, Path, str]) -> dict[str, Any]:
 
         try:
             # Import here to avoid circular imports
-            from pipeline.flows import (
+            from src.pipeline.flows import (
                 PipelineDefinition,
                 create_default_pipeline,
                 run_pipeline,

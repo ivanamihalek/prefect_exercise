@@ -6,15 +6,15 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from config import get_config
-from database import (
+from src.config import get_config
+from src.database import (
     initialize_database,
     ProcessingBatch,
     ProcessedRecord,
     db,
 )
-from jobs import BaseJob
-from validators import validate_database_record_id, ValidationError
+from src.jobs.base import BaseJob
+from src.validators import validate_database_record_id, ValidationError
 
 
 class JobCResult:

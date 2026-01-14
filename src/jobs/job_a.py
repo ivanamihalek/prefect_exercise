@@ -7,9 +7,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from config import get_config
-from jobs import BaseJob
-from validators import validate_file_path
+from src.config import get_config
+from src.jobs.base import BaseJob
+from src.validators import validate_file_path
 
 
 class JobA(BaseJob[Path, Path]):

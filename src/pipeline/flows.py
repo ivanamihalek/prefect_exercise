@@ -8,9 +8,9 @@ from typing import Any, Callable, Self
 
 from prefect import flow, task, get_run_logger
 
-from config import get_config, set_config, PipelineConfig
-from database import initialize_database, close_database
-from jobs import BaseJob, JobResult
+from src.config import get_config, set_config, PipelineConfig
+from src.database import initialize_database, close_database
+from src.jobs import BaseJob, JobResult
 
 
 # =============================================================================
@@ -297,7 +297,7 @@ def create_default_pipeline(
     This factory demonstrates how to configure a pipeline.
     For N jobs, simply add more add_job() calls.
     """
-    from jobs import JobA, JobB, JobC
+    from src.jobs import JobA, JobB, JobC
 
     config = get_config()
     _output_dir = output_dir or config.output_directory

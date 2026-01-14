@@ -18,7 +18,7 @@ from peewee import (
     BooleanField,
 )
 
-from config import get_config
+from src.config import get_config
 
 # Deferred database - will be initialized later
 db = SqliteDatabase(None)

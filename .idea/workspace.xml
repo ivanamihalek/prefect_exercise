@@ -5,37 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f5e09fef-4e3b-496c-9e5b-2cf94f52f782" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/jobs/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/prefect_exercise.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/prefect_exercise.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EXTENDING.md" beforeDir="false" afterPath="$PROJECT_DIR$/EXTENDING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PYTHON_API.md" beforeDir="false" afterPath="$PROJECT_DIR$/PYTHON_API.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pyproject.toml" beforeDir="false" afterPath="$PROJECT_DIR$/pyproject.toml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prefect_pipeline/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prefect_pipeline/cli.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/cli.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prefect_pipeline/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prefect_pipeline/database/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prefect_pipeline/database/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prefect_pipeline/jobs/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prefect_pipeline/jobs/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jobs/base.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prefect_pipeline/jobs/job_a.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jobs/job_a.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prefect_pipeline/jobs/job_b.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jobs/job_b.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prefect_pipeline/jobs/job_c.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jobs/job_c.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prefect_pipeline/pipeline/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipeline/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prefect_pipeline/pipeline/flows.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipeline/flows.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prefect_pipeline/pipeline/parallel.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipeline/parallel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prefect_pipeline/pipeline/wrappers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipeline/wrappers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prefect_pipeline/validators/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/validators/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/prefect_pipeline/validators/input_validators.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/validators/input_validators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/__init__.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/conftest.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_cli.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_database.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_jobs.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_parallel.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_pipeline.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/test_validators.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jobs/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jobs/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jobs/job_a.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jobs/job_a.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jobs/job_b.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jobs/job_b.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/jobs/job_c.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/jobs/job_c.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pipeline/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipeline/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pipeline/flows.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipeline/flows.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pipeline/parallel.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipeline/parallel.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pipeline/wrappers.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/pipeline/wrappers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/validators/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/validators/__init__.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,30 +26,30 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="38Fs62eSoMvy2fQFIOrVubhaUTL" />
   <component name="ProjectViewState">
     <option name="foldersAlwaysOnTop" value="false" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -85,6 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1768406475576</updated>
       <workItem from="1768406476989" duration="442000" />
+      <workItem from="1768408023624" duration="845000" />
     </task>
     <servers />
   </component>

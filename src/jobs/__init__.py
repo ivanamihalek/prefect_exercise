@@ -1,9 +1,9 @@
 """Jobs module containing task implementations."""
 
-from jobs import BaseJob, JobResult
-from jobs.job_a import JobA
-from jobs.job_b import JobB
-from jobs.job_c import JobC
+from src.jobs.base import BaseJob, JobResult
+from src.jobs.job_a import JobA
+from src.jobs.job_b import JobB
+from src.jobs.job_c import JobC
 
 __all__ = [
     "BaseJob",

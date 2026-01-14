@@ -9,13 +9,13 @@ from pathlib import Path
 
 import click
 
-from database import (
+from src.database import (
     initialize_database,
     close_database,
     PipelineInput,
     InputStatus,
 )
-from pipeline import (
+from src.pipeline import (
     PipelineRunner,
     get_max_workers,
     run_parallel_from_files,
