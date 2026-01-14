@@ -1,12 +1,12 @@
 """Pipeline module with Prefect flows and utilities."""
 
-from prefect_pipeline.pipeline.wrappers import (
+from pipeline.wrappers import (
     wrap_job_as_task,
     create_task_a,
     create_task_b,
     create_task_c,
 )
-from prefect_pipeline.pipeline.flows import (
+from pipeline.flows import (
     JobSpec,
     PipelineDefinition,
     PipelineRunner,
@@ -15,7 +15,7 @@ from prefect_pipeline.pipeline.flows import (
     create_default_pipeline,
 )
 
-from prefect_pipeline.pipeline.parallel import (
+from pipeline.parallel import (
     ParallelExecutionResult,
     get_max_workers,
     run_parallel_from_files,

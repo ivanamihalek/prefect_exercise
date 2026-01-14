@@ -9,14 +9,13 @@ from pathlib import Path
 
 import click
 
-from prefect_pipeline.config import PipelineConfig, set_config
-from prefect_pipeline.database import (
+from database import (
     initialize_database,
     close_database,
     PipelineInput,
     InputStatus,
 )
-from prefect_pipeline.pipeline import (
+from pipeline import (
     PipelineRunner,
     get_max_workers,
     run_parallel_from_files,

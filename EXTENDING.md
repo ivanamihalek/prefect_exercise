@@ -1,12 +1,14 @@
 ## Extending the pipeline to N Jobs
 The scalable design makes it easy to add more jobs:
+
 ```python
-from prefect_pipeline.pipeline import PipelineDefinition, PipelineRunner
+from src import PipelineDefinition, PipelineRunner
 from my_jobs import ValidateJob, TransformJob, EnrichJob, ExportJob
+
 
 def create_custom_pipeline() -> PipelineDefinition:
     pipeline = PipelineDefinition(name="my_pipeline")
-    
+
     # Add jobs in execution order
     pipeline.add_job(
         name="validate",
@@ -14,29 +16,30 @@ def create_custom_pipeline() -> PipelineDefinition:
         config_factory=lambda: {"schema": "my_schema.json"},
         description="Validate input data",
     )
-    
+
     pipeline.add_job(
         name="transform",
         job_class=TransformJob,
         config_factory=lambda: {"rules": transform_rules},
         description="Apply transformations",
     )
-    
+
     pipeline.add_job(
         name="enrich",
         job_class=EnrichJob,
         config_factory=lambda: {"lookup_db": "lookups.db"},
         description="Enrich with external data",
     )
-    
+
     pipeline.add_job(
         name="export",
         job_class=ExportJob,
         config_factory=lambda: {"destination": "/data/export"},
         description="Export final results",
     )
-    
+
     return pipeline
+
 
 # Use the custom pipeline
 runner = PipelineRunner(pipeline=create_custom_pipeline())
@@ -53,11 +56,13 @@ print(runner.available_jobs)
 ## Creating Custom Jobs
 
 All jobs must inherit from BaseJob and implement two methods:
+
 ```python
 from pathlib import Path
 from typing import Any
-from prefect_pipeline.jobs import BaseJob
-from prefect_pipeline.validators import ValidationError
+from jobs import BaseJob
+from src import ValidationError
+
 
 class MyCustomJob(BaseJob[dict, list]):
     """
@@ -65,11 +70,11 @@ class MyCustomJob(BaseJob[dict, list]):
     - InputType: What single_job() receives (after validation)
     - OutputType: What single_job() returns
     """
-    
+
     def __init__(self, config_option: str = "default") -> None:
         super().__init__()
         self.config_option = config_option
-    
+
     def validate_input(self, input_data: Any) -> dict:
         """
         Validate and transform raw input.
@@ -82,12 +87,12 @@ class MyCustomJob(BaseJob[dict, list]):
                 f"Expected dict, got {type(input_data).__name__}",
                 field="input_data"
             )
-        
+
         if "required_key" not in input_data:
             raise ValidationError("Missing 'required_key'", field="input_data")
-        
+
         return input_data
-    
+
     def single_job(self, input_data: dict) -> list:
         """
         Core business logic.

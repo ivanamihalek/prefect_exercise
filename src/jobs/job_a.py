@@ -7,9 +7,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 
-from prefect_pipeline.config import get_config
-from prefect_pipeline.jobs.base import BaseJob
-from prefect_pipeline.validators import validate_file_path, ValidationError
+from config import get_config
+from jobs import BaseJob
+from validators import validate_file_path
 
 
 class JobA(BaseJob[Path, Path]):

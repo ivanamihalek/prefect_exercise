@@ -1,6 +1,6 @@
 """Database module."""
 
-from prefect_pipeline.database.models import (
+from database.models import (
     db,
     InputStatus,
     PipelineInput,

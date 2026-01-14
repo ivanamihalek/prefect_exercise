@@ -5,7 +5,7 @@ Basic usage:
 
 ```python
 from pathlib import Path
-from prefect_pipeline.pipeline import PipelineRunner
+from src import PipelineRunner
 
 # Create a runner with configuration
 runner = PipelineRunner(
@@ -51,9 +51,10 @@ print(runner.available_jobs)
 ```
 
 Run in parallel:
+
 ```python
 from pathlib import Path
-from prefect_pipeline.pipeline import (
+from src import (
     run_parallel_from_files,
     run_parallel_from_database,
 )

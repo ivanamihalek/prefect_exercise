@@ -5,7 +5,6 @@ from __future__ import annotations
 from datetime import datetime
 from enum import Enum
 from pathlib import Path
-from typing import Any
 
 from peewee import (
     SqliteDatabase,
@@ -19,7 +18,7 @@ from peewee import (
     BooleanField,
 )
 
-from prefect_pipeline.config import get_config
+from config import get_config
 
 # Deferred database - will be initialized later
 db = SqliteDatabase(None)

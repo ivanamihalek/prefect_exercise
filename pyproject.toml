@@ -24,10 +24,10 @@ dev = [
 ]
 
 [project.scripts]
-pipeline = "prefect_pipeline.cli:main"
+pipeline = "src.cli:main"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/prefect_pipeline"]
+packages = ["src"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

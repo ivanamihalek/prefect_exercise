@@ -8,9 +8,9 @@ from typing import Any, Callable, TypeVar
 from prefect import task, get_run_logger
 from prefect.tasks import Task
 
-from prefect_pipeline.jobs import BaseJob, JobResult, JobA, JobB, JobC
-from prefect_pipeline.jobs.job_c import JobCResult
-from prefect_pipeline.config import get_config
+from jobs import BaseJob, JobResult, JobA, JobB, JobC
+from jobs.job_c import JobCResult
+from config import get_config
 
 InputT = TypeVar("InputT")
 OutputT = TypeVar("OutputT")

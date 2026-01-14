@@ -1,6 +1,6 @@
 """Input validators module."""
 
-from prefect_pipeline.validators.input_validators import (
+from validators.input_validators import (
     ValidationError,
     validate_file_path,
     validate_processed_data,

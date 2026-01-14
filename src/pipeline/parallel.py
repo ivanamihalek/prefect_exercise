@@ -3,22 +3,18 @@
 from __future__ import annotations
 
 import multiprocessing
-import os
 from concurrent.futures import ProcessPoolExecutor, as_completed
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Callable
 
-from prefect_pipeline.config import get_config, set_config, PipelineConfig
-from prefect_pipeline.database import (
+from config import set_config, PipelineConfig
+from database import (
     initialize_database,
     close_database,
     PipelineInput,
-    InputStatus,
-    db,
 )
-from prefect_pipeline.jobs import JobResult
 
 
 @dataclass
@@ -85,7 +81,7 @@ def _run_single_pipeline(args: tuple[str, Path, Path, str]) -> dict[str, Any]:
 
         try:
             # Import here to avoid circular imports
-            from prefect_pipeline.pipeline.flows import (
+            from pipeline.flows import (
                 PipelineDefinition,
                 create_default_pipeline,
                 run_pipeline,
